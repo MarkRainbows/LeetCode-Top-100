@@ -10,36 +10,28 @@
 list1 = [1, 4, 6, 8, 10, 11]
 target_num = 18
 
-# solution 1  暴力解决法
 
-'''
 class Solution:
-    def two_sum(self, nums: list, target: int):
+
+    # 暴力破解  内存消耗过多  用时过长
+    def twoSum(self, nums: list, target: int):
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
                     return print(nums[i], nums[j])
 
-
-sou = Solution()
-sou.two_sum(list1, target_num)
-
-'''
-
-
-# Soulation 2  排除法
-
-'''
-class Solution:
-    def two_sum1(self, nums: list, target: int):
+    # 排除法  内存消耗一般  用时速度较快
+    def twoSum1(self, nums: list, target: int):
         for i in range(len(nums)):
-            one_num = target - nums[i]
-            if one_num in list1:
-                return print(nums[i], one_num)
+            num = target - nums[i]
+            if num in nums and nums.index(num) != i:
+                return i, nums.index(num)
 
 
-sou1 = Solution()
-sou1.two_sum1(list1, target_num)
 
-'''
+
+
+
+
+
 
